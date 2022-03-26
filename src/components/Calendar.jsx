@@ -167,8 +167,9 @@ export default class Calendar extends React.Component {
         }, () => {
             console.log("SELECTED DAY: ", this.state.selectedDay);
         });
-
         this.props.onDayClick && this.props.onDayClick(e, day);
+        // console.log("this.props.onDayClick:", this.props.onDayClick);
+        // console.log("this.props.onDayClick(e, day):", this.props.onDayClick(e, day))
     }
 
     render() {
@@ -194,12 +195,11 @@ export default class Calendar extends React.Component {
             let className = (d == this.currentDay() ? "day current-day" : "day");
             let selectedClass = (d == this.state.selectedDay ? " selected-day " : "")
             daysInMonth.push(
-                <td key={d} className={className + selectedClass} >
-                    <span onClick={(e) => { this.onDayClick(e, d) }}>{d}</span>
+                <td key={d} className={className + selectedClass} onClick={(e) => { this.onDayClick(e, d) }}>
+                    <span >{d}</span>
                 </td>
             );
         }
-
 
         console.log("days: ", daysInMonth);
 
@@ -237,9 +237,7 @@ export default class Calendar extends React.Component {
                 <table className="calendar">
                     <thead>
                         <tr className="calendar-header">
-                            <td colSpan="1">
-
-                            </td>
+                            <td colSpan="1"></td>
                             <td colSpan="4">
                                 <this.MonthNav />
                                 {" "}
@@ -260,9 +258,7 @@ export default class Calendar extends React.Component {
                         {trElems}
                     </tbody>
                 </table>
-
             </div>
-
         );
     }
 }
