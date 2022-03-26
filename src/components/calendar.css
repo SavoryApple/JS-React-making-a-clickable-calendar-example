@@ -7,8 +7,16 @@ tr {
     margin: 0;
 }
 
+
 .calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 2px solid skyblue;
+    height: 75%;
+    width: 50%;
+    
 }
 
 .calendar {
@@ -16,16 +24,20 @@ tr {
     border-spacing: 0;
     border-collapse: collapse;
     width: 100%;
+    height: 100%;
 }
 
 .calendar-header {
     border-bottom: 1px dashed skyblue;
     font-size: 1.6em;
+    height: 10%;
+
 }
 
 .calendar-header td {
     border-spacing: 0;
     padding-left: 5px;
+
 }
 
 .day,
@@ -78,11 +90,14 @@ tr {
     padding: 0.3em;
 }
 
-.nav-month {
-    position: absolute;
-    top: 0.6em;
-    font-size: 0.6em;
-    right:3px;
+.arrow-left {
+    height: 25px;
+    width: 25px;
+}
+
+.arrow-right {
+    height: 25px;
+    width: 25px;
 }
 
 .prev {

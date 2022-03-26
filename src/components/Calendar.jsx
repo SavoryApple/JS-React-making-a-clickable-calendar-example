@@ -13,7 +13,7 @@ export default class Calendar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.width = props.width || "350px";
+        this.width = props.width;
         this.style = props.style || {};
         this.style.width = this.width; // add this
     }
@@ -223,11 +223,13 @@ export default class Calendar extends React.Component {
         });
 
         let trElems = rows.map((d, i) => {
-            return (
-                <tr key={i * 100}>
-                    {d}
-                </tr>
-            );
+            if (d.length != 0) {
+                return (
+                    <tr key={i * 100}>
+                        {d}
+                    </tr>
+                );
+            }
         })
 
         return (
@@ -235,19 +237,19 @@ export default class Calendar extends React.Component {
                 <table className="calendar">
                     <thead>
                         <tr className="calendar-header">
-                            <td colSpan="5">
+                            <td colSpan="1">
+
+                            </td>
+                            <td colSpan="4">
                                 <this.MonthNav />
                                 {" "}
                                 <this.YearNav />
                             </td>
-                            <td colSpan="2" className="nav-month">
-                                <i className="prev fa fa-fw fa-chevron-left"
-                                    onClick={(e) => { this.prevMonth() }}>
-                                </i>
-                                <i className="prev fa fa-fw fa-chevron-right"
-                                    onClick={(e) => { this.nextMonth() }}>
-                                </i>
-
+                            <td colSpan="1">
+                                <img src={require('../images/arrow-left.png')} alt='arrow left' className='arrow-left' onClick={(e) => { this.prevMonth() }} />
+                            </td>
+                            <td colSpan="1">
+                                <img src={require('../images/arrow-right.png')} alt='arrow right' className='arrow-right' onClick={(e) => { this.nextMonth() }} />
                             </td>
                         </tr>
                     </thead>
